@@ -124,9 +124,25 @@ int main() {
 
           double steer_value = j[1]["steering_angle"];
           double throttle_value = j[1]["throttle"];
+          
+          //double x = j[1]["x"];
+          //double y = j[1]["y"];
+          //double psi_n = j[1]["psi"];
+          //double v_n = j[1]["speed"];
+          //double delta = j[1]["steering_angle"];
+          //double acceleration = j[1]["throttle"];
+
+          // predict state in 100ms
+          double Lf = 2.67;
+          //double latency = 0.1; 
+          //x = x + v*cos(psi)*latency;
+          //y = y + v*sin(psi)*latency;
+          //psi_n = psi_n + v*delta/Lf*latency;
+          //v_n = v_n + acceleration*latency;
 
           Eigen::VectorXd state(6);
           state << 0, 0, 0, v, cte, epsi;
+          //state << x, y, psi_n, v_n, cte, epsi;
 
           auto vars = mpc.Solve(state, coeffs);
 
@@ -152,7 +168,7 @@ int main() {
             }
           }
 
-          double Lf = 2.67;
+          
 
 
           json msgJson;
