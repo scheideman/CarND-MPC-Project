@@ -30,7 +30,7 @@ To choose N and dt I used trial and error to find numbers that worked. I started
 
 #### Polynomial Fitting and MPC Preprocessing
 
-To start I followed the project walkthrough and the cars position is subtracted from the waypoints position, so that the reference origin for the car is a (0,0) in addtion the waypoint points are rotated by (0 - cars orientation) so that the cars reference orientation is 0 also. This simplifies things when calculating the inital state and will make doing the polynomial fit easier since the cars reference orientation is 0 we will mostly be fitting a horizontal line and not a vertical line.
+To start I followed the project walkthrough and the cars position is subtracted from the waypoints position, so that the reference origin for the car is a (0,0) in addtion the waypoint points are rotated by (0 - cars orientation) so that the cars reference orientation is 0 also. This simplifies things when calculating the inital state and made doing the polynomial fit easier since the cars reference orientation is always 0, therfore we will mostly be fitting a horizontal line and not a vertical line.
 
 With the intial positions and orientation set to zero the intial state is [0,0,0,v,cte,epsi]
 
